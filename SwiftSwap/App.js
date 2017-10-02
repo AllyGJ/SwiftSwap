@@ -1,13 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 
 export default class App extends React.Component {
   render() {
+    var smile = require('./images/smiley.jpg');
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+        <Image source={smile}/>
+        <Text>Hi Beatriz!</Text>
+        <Text>If you are reading this, you got the app to load correctly</Text>
+        <Text>Now we just need to make the real app</Text>
       </View>
     );
   }
