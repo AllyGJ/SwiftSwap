@@ -1,25 +1,34 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import PropTypes from 'prop-types';
+import { Text, View, Image, NavigatorIOS, Button } from 'react-native';
+
 
 export default class App extends React.Component {
   render() {
-    var smile = require('./images/smiley.jpg');
+
+    var Login = require('./Login.js');
+
+    // var admin = require("firebase-admin");
+
+    // var serviceAccount = require("./swiftswap-5e411-firebase-adminsdk-eguqw-3d5df4a431.json");
+
+    //   admin.initializeApp({
+    //   credential: admin.credential.cert(serviceAccount),
+    //   databaseURL: "https://<swiftswap-5e411>.firebaseio.com"
+    // });
+
     return (
-      <View style={styles.container}>
-        <Image source={smile}/>
-        <Text>Hi Beatriz!</Text>
-        <Text>If you are reading this, you got the app to load correctly</Text>
-        <Text>Now we just need to make the real app</Text>
-      </View>
-    );
+    
+      <NavigatorIOS
+        initialRoute={{
+          component: Login,
+          title: 'Log in',
+          passProps: {index: 1},
+        }}
+        style={{flex: 1}}
+      />
+      
+    )
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
