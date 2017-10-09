@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Text, View, Image, NavigatorIOS, Button } from 'react-native';
+import { Text, View, Image, NavigatorIOS, Button , FlatList} from 'react-native';
+import Category from './Category.js';
 
 class HomeScreen extends React.Component {
   static propTypes = {
@@ -26,8 +27,22 @@ class HomeScreen extends React.Component {
 
   render() {
     return (
-      <View>
-        <Text>"HIIIIIII"</Text>
+      <View style={{
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}>
+        <View style={{height: 30}} />
+        <Text style={{textAlign:'center', fontSize:20,fontWeight:'bold'}}>SwiftSwap</Text>
+        
+        <View style={{height: 30}} />
+
+        <FlatList
+          data={[{key:<Category/>}, {key:<Category/>}]}
+          renderItem={({item}) => <Text>{item.key}</Text>}
+        />
+      
       </View>
     )
   }
