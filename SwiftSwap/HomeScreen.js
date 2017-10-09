@@ -3,6 +3,21 @@ import PropTypes from 'prop-types';
 import { Text, View, Image, NavigatorIOS, Button , FlatList} from 'react-native';
 import Category from './Category.js';
 
+
+const dummyCats = [
+  {
+    key:0, 
+    title: "Food",
+    image: require("./images/smiley.jpg")
+  },
+  {
+    key:1, 
+    title: "Clothing",
+    image: require("./images/smiley.jpg")
+  }
+]
+
+
 class HomeScreen extends React.Component {
   static propTypes = {
     route: PropTypes.shape({
@@ -34,15 +49,16 @@ class HomeScreen extends React.Component {
         alignItems: 'center'
       }}>
         <View style={{height: 30}} />
-        <Text style={{textAlign:'center', fontSize:20,fontWeight:'bold'}}>SwiftSwap</Text>
-        
+          <FlatList
+            data={dummyCats}
+            renderItem={li => {
+              console.log("li.index", li.index)
+              return <Category key={li.index} title={li.item.title} image={li.item.image}/>
+            }}
+          />
         <View style={{height: 30}} />
 
-        <FlatList
-          data={[{key:<Category/>}, {key:<Category/>}]}
-          renderItem={({item}) => <Text>{item.key}</Text>}
-        />
-      
+        
       </View>
     )
   }

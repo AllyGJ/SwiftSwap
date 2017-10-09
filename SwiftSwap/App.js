@@ -8,9 +8,12 @@ export default class App extends React.Component {
 
     var Login = require('./Login.js');
 
-    // var admin = require("firebase-admin");
+    // console.log(Login)
 
-    // var serviceAccount = require("./swiftswap-5e411-firebase-adminsdk-eguqw-3d5df4a431.json");
+    //var admin = require("firebase-admin");
+
+     //var serviceAccount = require("./swiftswap-5e411-firebase-adminsdk-eguqw-3d5df4a431.json");
+     //console.log(serviceAccount)  
 
     //   admin.initializeApp({
     //   credential: admin.credential.cert(serviceAccount),

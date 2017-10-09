@@ -12,13 +12,21 @@ class Login extends React.Component {
     navigator: PropTypes.object.isRequired,
   }
 
+  
   constructor(props, context) {
     super(props, context);
     this._onForward = this._onForward.bind(this);
+
+
+    this.state = {
+      username:"pat",
+      password:"hello"
+    }
   }
 
   _onForward() {
     let nextIndex = ++this.props.index;
+    console.log(this.state)
     this.props.navigator.push({
       component: HomeScreen,
       title: 'Home',
@@ -31,13 +39,15 @@ class Login extends React.Component {
 
   }
 
-  _setUserName(text){
+  // _setUserName(username){
+  //   console.log(username)
+  //  // this.setState({username})
+  // }
 
-  }
-
-  _setPassword(text){
-
-  }
+  // _setPassword(password){
+  //   console.log(password)
+  //   //this.setState({password})
+  // }
 
   _createNewAccount()
   {
@@ -60,6 +70,8 @@ class Login extends React.Component {
 
         <Text>Username</Text>
         <TextInput
+        value={this.state.username}
+        onChangeText={(username) => this.setState({username})}
         style={{width:300,height: 40, borderColor: 'gray', borderWidth: 1}}
         />
 
@@ -67,6 +79,9 @@ class Login extends React.Component {
 
         <Text>Password</Text>
         <TextInput
+        secureTextEntry={true}
+        value={this.state.password}
+        onChangeText={(password) => this.setState({password})}
         style={{width: 300 ,height: 40, borderColor: 'gray', borderWidth: 1}}
         />
 
