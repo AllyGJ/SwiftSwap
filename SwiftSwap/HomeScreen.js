@@ -4,7 +4,7 @@ import { Text, View, Image, NavigatorIOS, Button , FlatList} from 'react-native'
 import Category from './Category.js';
 
 
-const dummyCats = [
+const categories = [
   {
     key:0, 
     title: "Food",
@@ -50,7 +50,7 @@ class HomeScreen extends React.Component {
       }}>
         <View style={{height: 30}} />
           <FlatList
-            data={dummyCats}
+            data={categories}
             renderItem={li => {
               console.log("li.index", li.index)
               return <Category key={li.index} title={li.item.title} image={li.item.image}/>
