@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Text, View, Image, NavigatorIOS, Button , TouchableOpacity} from 'react-native';
-//import CategoryPage from './CategoryPage.js'
-import HomeScreen from './HomeScreen.js';
 
-function Category(props) {
-  console.log("props!!")
+
+function MiniPost(props) {
 	return(	
 		<TouchableOpacity onPress={props.onDonePress}>
 
@@ -30,4 +28,4 @@ function Category(props) {
 	)
 }
 
-export default Category;
+export default MiniPost;

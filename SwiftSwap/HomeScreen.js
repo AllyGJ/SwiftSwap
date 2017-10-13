@@ -64,6 +64,7 @@ class HomeScreen extends React.Component {
 
 
   render() {
+    console.log("hello world")
     return (
       <View style={{
         flex: 1,
@@ -80,8 +81,7 @@ class HomeScreen extends React.Component {
           <FlatList
             data={categories}
             renderItem={li => {
-              console.log("li.index", li.index)
-              return <Category onDonePress={this._onForward(li.item.title)} key={li.index} title={li.item.title} image={li.item.image}/>
+              return <Category onDonePress={() => this._onForward(li.item.title)} key={li.index} title={li.item.title} image={li.item.image}/>
             }}
           />
         <View style={{height: 30}} />
