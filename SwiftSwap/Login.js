@@ -65,7 +65,7 @@ class Login extends React.Component {
       }}>
 
       <View style={{height: 30}} />
-      <Text style={{textAlign:'center', fontSize:20,fontWeight:'bold'}}>SwiftSwap</Text>
+      <Text style={{textAlign:'center', fontSize:40,fontWeight:'bold'}}>SwiftSwap</Text>
         <View style={{height: 80}} />
 
         <Text>Username</Text>
