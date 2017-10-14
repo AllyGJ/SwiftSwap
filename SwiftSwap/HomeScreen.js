@@ -7,32 +7,32 @@ import CategoryPage from './CategoryPage.js'
 
 const categories = [
   {
-    key:0, 
+    key:0,
     title: "Food",
-    image: require("./images/leftovers.jpeg")
+    image: require("./images/food-small.jpeg")
   },
   {
-    key:1, 
+    key:1,
     title: "Clothing",
-    image: require("./images/clothes.jpeg")
+    image: require("./images/clothes-small.jpeg")
   },
   {
-    key:2, 
+    key:2,
     title: "Electronics",
-    image: require("./images/electronics.jpeg")
+    image: require("./images/electronics-small.jpeg")
   },
   {
-    key:3, 
+    key:3,
     title: "Furniture",
-    image: require("./images/furniture.jpeg")
+    image: require("./images/furniture-small.jpeg")
   },
   {
-    key:4, 
+    key:4,
     title: "Games",
-    image: require("./images/games.jpeg")
+    image: require("./images/games-small.jpeg")
   },
   {
-    key:5, 
+    key:5,
     title: "Services",
     image: require("./images/services.png")
   }
@@ -74,9 +74,9 @@ class HomeScreen extends React.Component {
       }}>
 
         <View style={{height: 80}} />
-        <Text style={{fontSize:40, fontWeight:'bold'}}>SwiftSwap</Text> 
+        <Text style={{fontSize:40, fontWeight:'bold'}}>SwiftSwap</Text>
         <View style={{height: 20}} />
-        <Text style={{fontSize:18}}>Choose a category and start swapping!</Text> 
+        <Text style={{fontSize:18}}>Choose a category and start swapping!</Text>
         <View style={{height: 10}} />
           <FlatList
             data={categories}
@@ -86,7 +86,7 @@ class HomeScreen extends React.Component {
           />
         <View style={{height: 30}} />
 
-        
+
       </View>
     )
   }

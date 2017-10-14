@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Text, TextInput, View, Image, NavigatorIOS, Button } from 'react-native';
-import HomeScreen from './HomeScreen.js';
+//import HomeScreen from './HomeScreen.js';
+import DashboardScreen from './DashboardScreen.js';
 
 class Login extends React.Component {
 
@@ -12,7 +13,7 @@ class Login extends React.Component {
     navigator: PropTypes.object.isRequired,
   }
 
-  
+
   constructor(props, context) {
     super(props, context);
     this._onForward = this._onForward.bind(this);
@@ -28,8 +29,10 @@ class Login extends React.Component {
     let nextIndex = ++this.props.index;
     console.log(this.state)
     this.props.navigator.push({
-      component: HomeScreen,
-      title: 'Home',
+      //component: HomeScreen,
+      //title: 'Home',
+      component: DashboardScreen,
+      title: 'Dashboard',
       passProps: {index: nextIndex}
     });
   }
@@ -99,10 +102,10 @@ class Login extends React.Component {
           title="Create new account"
         />
       </View>
-     
 
-      
-    
+
+
+
     )
   }
 }
