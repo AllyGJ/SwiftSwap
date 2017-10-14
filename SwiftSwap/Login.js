@@ -20,14 +20,13 @@ class Login extends React.Component {
 
 
     this.state = {
-      username:"pat",
-      password:"hello"
+      username:"",
+      password:""
     }
   }
 
   _onForward() {
     let nextIndex = ++this.props.index;
-    console.log(this.state)
     this.props.navigator.push({
       //component: HomeScreen,
       //title: 'Home',

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Text, TextInput, View, Image, NavigatorIOS, Button , FlatList} from 'react-native';
+import CheckBox from 'react-native-checkbox';
 
 class NewPost extends React.Component {
   static propTypes = {
@@ -37,6 +38,9 @@ class NewPost extends React.Component {
 
 
   render() {
+    const checkImg = require('./images/checkedBox.png')
+    const uncheckImg = require('./images/uncheckedBox.png')
+
   	return(
   	
   		<View style={{
@@ -52,11 +56,26 @@ class NewPost extends React.Component {
       		/>
       		<Text>Description</Text>
       		<TextInput
-      			multiline='true'
+      			multiline={true}
       			style={{height: 80, borderColor: 'gray', borderWidth: 1}}
       			onChangeText={(description) => this.setState({description})}
       			value={this.state.description}
       		/>
+
+          <CheckBox
+              label='Free'
+              labelBefore = {true}
+              onChange={(free) => this.setState({free})}
+              checkedImage = {checkImg}
+              uncheckedImage = {uncheckImg}
+          />
+          <CheckBox
+              label='Trade'
+              labelBefore = {true}
+              onChange={(trade) => this.setState({trade})}
+              checkedImage = {checkImg}
+              uncheckedImage = {uncheckImg}
+          />
 
       	</View>
   	)
