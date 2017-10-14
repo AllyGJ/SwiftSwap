@@ -24,7 +24,7 @@ _postNew()
     this.props.navigator.push({
       component: NewPost,
       title: 'Create New Post',
-      passProps: {index: nextIndex}
+      passProps: {index: nextIndex, page:this.props.title}
     });
 
 }
