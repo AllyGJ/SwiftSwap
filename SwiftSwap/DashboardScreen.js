@@ -23,6 +23,11 @@ import { Text, View, Image, NavigatorIOS, Button, FlatList} from 'react-native';
 import Category from './Category.js';
 //import CategoryPage from './CategoryPage.js'
 import HomeScreen from './HomeScreen.js';
+import SettingsScreen from './SettingsScreen.js';
+import GridView from 'react-native-gridview';
+//import EasyListView from 'react-native-easy-listview-gridview'
+
+const itemsPerRow = 3;
 
 
 const categories = [
@@ -55,20 +60,23 @@ class DashboardScreen extends React.Component {
   constructor(props, context) {
     super(props, context);
     this._onForward = this._onForward.bind(this);
+    //this.renderGridItem = this._renderGridItem.bind(this)
+    //this.onFetch = this._onFetch.bind(this)
   }
 
 
-  _onForward() {
+  _onForward(name) {
     let nextIndex = ++this.props.index;
     this.props.navigator.push({
       //component: DashboardCategoryPage,
       //title: name,
       component: HomeScreen,
       title: 'Home',
+      // component: SettingsScreen,
+      // title: 'Settings',
       passProps: {index: nextIndex}
     });
   }
-
 
 
   render() {
@@ -84,7 +92,7 @@ class DashboardScreen extends React.Component {
         <View style={{height: 80}} />
         <Text style={{fontSize:40, fontWeight:'bold'}}>SwiftSwap</Text>
         <View style={{height: 20}} />
-        <Text style={{fontSize:18}}>Welcome to your dashboard</Text>
+        <Text style={{fontSize:18}}>Choose a category and start swapping!</Text>
         <View style={{height: 10}} />
           <FlatList
             data={categories}
@@ -96,8 +104,48 @@ class DashboardScreen extends React.Component {
 
 
       </View>
+
+        // <GridView
+        //   data={categories}
+        //   itemsPerRow={itemsPerRow}
+        //   renderItem={(item) => {
+        //     return (
+        //       <View style={{ flex: 1, backgroundColor: '#8F8', borderWidth: 1 }}>
+        //         <Text>{{'$item$'}}</Text>
+        //       </View>
+        //     );
+        //   }}
+        // />
+
     )
   }
+
+  // _renderGridItem(index, rowData, sectionID, rowID, highlightRow) {
+  //   return (
+  //     <View
+  //       key={index}
+  //       style={GridStyles.rowContainer}>
+  //       <TouchableHighlight
+  //         style={{flex: 1}}
+  //         onPress= {() => alert(rowData)}>
+  //         <View
+  //           style={GridStyles.rowContent}>
+  //           <Text
+  //             style={GridStyles.rowTitle}>
+  //             {rowData}
+  //           </Text>
+  //         </View>
+  //       </TouchableHighlight>
+  //
+  //     </View>
+  //
+  //
+  //   )
+  // }
+
+  // _onFetch(pageNo, success, failure) {
+  //   // ...
+  // }
 }
 
 module.exports = DashboardScreen;
