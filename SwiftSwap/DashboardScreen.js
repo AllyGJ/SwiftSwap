@@ -20,8 +20,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Text, View, Image, NavigatorIOS, Button, FlatList,
-         StyleSheet } from 'react-native';
-import { ListItem } from 'native-base';
+         StyleSheet, Dimensions } from 'react-native';
+//import { ListItem } from 'native-base';
 import Category from './Category.js';
 //import CategoryPage from './CategoryPage.js'
 import HomeScreen from './HomeScreen.js';
@@ -32,7 +32,10 @@ import EventsScreen from './EventsScreen.js';
 'use strict';
 
 const itemsPerRow = 2;
-var s = require('./Styles');
+
+
+const {height, width} = Dimensions.get('window');
+
 
 
 const categories = [
@@ -53,44 +56,52 @@ const categories = [
   }
 ]
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//     backgroundColor: '#F8E1B4',
-//     flexDirection: 'column',
-//     padding: 30,
-//     marginTop: 65,
-//   },
-//   title: {
-//     marginTop: 5,
-//     fontSize:40,
-//     fontWeight:'bold',
-//     textAlign: 'center',
-//     marginBottom: 5,
-//   },
-//   description: {
-//     marginBottom: 10,
-//     fontSize: 18,
-//     textAlign: 'center',
-//     color: 'black'
-//   },
-//   list: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     flexDirection: 'column',
-//     alignItems: 'flex-start',
-//   },
-//   listitem: {
-//     flex: 1,
-//     //fontSize: 20,
-//     margin: 5,
-//     width: 223,
-//     height: 304,
-//     backgroundColor: '#CCC',
-//   }
-// });
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    //backgroundColor: '#F5FCFF',
+    flexDirection: 'column',
+    padding: 30,
+    marginTop: 65,
+  },
+  title: {
+    marginTop: 5,
+    fontSize:40,
+    fontWeight:'bold',
+    textAlign: 'center',
+    marginBottom: 5,
+  },
+  description: {
+    marginBottom: 10,
+    fontSize: 18,
+    textAlign: 'center',
+    color: 'black'
+  },
+  list: {
+    flex: 1,
+    justifyContent: 'center',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+  },
+  listitem: {
+    flex: 1,
+    //fontSize: 20,
+    margin: 5,
+    width: 223,
+    height: 304,
+    backgroundColor: '#CCC',
+  },
+  card: {
+    flex: 1,
+    margin: 5,
+    backgroundColor: '#ddd',
+    height: 130
+  }
+});
+
 
 
 
@@ -133,8 +144,16 @@ class DashboardScreen extends React.Component {
   };
 
   _renderItem = (item) => {
+
     return //<View style={styles.listitem}>
-    <Text style={s.description}>{item.title}</Text>
+
+    return
+    <View style={styles.card}
+      image={item.image}
+      text={item.title}
+    />
+      //<Text style={styles.description}>{item.title}</Text>
+
     //</View>
   }
 
@@ -150,14 +169,21 @@ class DashboardScreen extends React.Component {
           Welcome to your dashboard!
         </Text>
         <FlatList
+
           contentContainerStyle={s.list}
+
+          //contentContainerStyle={styles.list}
+
           data={categories}
-          numColumns={itemsPerRow}
-          //keyExtractor={this._keyExtractor}
+          //numColumns={itemsPerRow}
+          keyExtractor={(item, index) => index}
           renderItem={li => {
             return <Category onDonePress={() => this._onForward(li.item.title)} key={li.index} title={li.item.title} image={li.item.image}/>
           }}
-          //renderItem={({item}) => <Text>{item.title}</Text>}
+          // renderItem={(item) => <View //style={styles.card}
+          //   image={item.image}
+          //   text={item.title}
+          // />}
         />
       </View>
     );
