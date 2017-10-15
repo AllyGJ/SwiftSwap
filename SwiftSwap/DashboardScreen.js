@@ -20,8 +20,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Text, View, Image, NavigatorIOS, Button, FlatList,
-         StyleSheet } from 'react-native';
-import { ListItem } from 'native-base';
+         StyleSheet, Dimensions } from 'react-native';
+//import { ListItem } from 'native-base';
 import Category from './Category.js';
 //import CategoryPage from './CategoryPage.js'
 import HomeScreen from './HomeScreen.js';
@@ -32,6 +32,7 @@ import EventsScreen from './EventsScreen.js';
 'use strict';
 
 const itemsPerRow = 2;
+const {height, width} = Dimensions.get('window');
 
 
 const categories = [
@@ -88,6 +89,12 @@ const styles = StyleSheet.create({
     width: 223,
     height: 304,
     backgroundColor: '#CCC',
+  },
+  card: {
+    flex: 1,
+    margin: 5,
+    backgroundColor: '#ddd',
+    height: 130
   }
 });
 
@@ -132,8 +139,12 @@ class DashboardScreen extends React.Component {
   };
 
   _renderItem = (item) => {
-    return //<View style={styles.listitem}>
-    <Text style={styles.description}>{item.title}</Text>
+    return
+    <View style={styles.card}
+      image={item.image}
+      text={item.title}
+    />
+      //<Text style={styles.description}>{item.title}</Text>
     //</View>
   }
 
@@ -149,14 +160,17 @@ class DashboardScreen extends React.Component {
           Welcome to your dashboard!
         </Text>
         <FlatList
-          contentContainerStyle={styles.list}
+          //contentContainerStyle={styles.list}
           data={categories}
-          numColumns={itemsPerRow}
-          //keyExtractor={this._keyExtractor}
+          //numColumns={itemsPerRow}
+          keyExtractor={(item, index) => index}
           renderItem={li => {
             return <Category onDonePress={() => this._onForward(li.item.title)} key={li.index} title={li.item.title} image={li.item.image}/>
           }}
-          //renderItem={({item}) => <Text>{item.title}</Text>}
+          // renderItem={(item) => <View //style={styles.card}
+          //   image={item.image}
+          //   text={item.title}
+          // />}
         />
       </View>
     );
