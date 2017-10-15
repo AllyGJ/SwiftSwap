@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Text, TextInput, View, Image, NavigatorIOS, Button , FlatList} from 'react-native';
+import { Text, TextInput, View, Image, NavigatorIOS, Button , FlatList, TouchableOpacity} from 'react-native';
 import CheckBox from 'react-native-checkbox';
 import DatePicker from 'react-native-datepicker';
-{/*import TimePicker from 'react-native-timepicker';*/}
+import DateTimePicker from 'react-native-modal-datetime-picker';
 
 
 var s = require('./Styles');
@@ -27,10 +27,22 @@ class NewPost extends React.Component {
       trade:false,
       tradeFor:"",
       date:"",
-      time:"",
-      address:""
+      time:"8:30",
+      address:"",
+      isDateTimePickerVisible: false
+
     }
   }
+
+  _showDateTimePicker = () => this.setState({ isDateTimePickerVisible: true });
+ 
+  _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
+ 
+  _handleTimePicked = (time) => {
+    this.setState(time);
+    console.log(time);
+    this._hideDateTimePicker();
+  };
 
   // _onForward(name) {
   //   let nextIndex = ++this.props.index;
@@ -133,14 +145,21 @@ class NewPost extends React.Component {
 
           <View style={{height: 10}} />
           <Text>Time item is available</Text>
-          {/*<TimePicker
-            style={{backgroundColor:'grey'}}
-            selectedHour={1}
-            selectedMinute={30}
-            minuteInterval={5}
-            onValueChange={(time)=>this.setState({time})}
-            loop={true} 
-          />*/}
+          
+
+          <View style={{flexDirection:'row'}}>
+            <TouchableOpacity onPress={this._showDateTimePicker}>
+              <Image source={require('./images/clock.png')}/>
+            </TouchableOpacity>
+            <Text>{this.state.time}</Text>
+          </View>
+          <DateTimePicker
+            mode='datetime'
+            titleIOS='Pick a time'
+            isVisible={this.state.isDateTimePickerVisible}
+            onConfirm={(date)=>this._handleTimePicked(date)}
+            onCancel={()=>this._hideDateTimePicker()}
+          />
 
           <View style={{height: 10}} />
           <Text>Address</Text>

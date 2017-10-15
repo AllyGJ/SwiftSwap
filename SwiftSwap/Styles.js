@@ -44,6 +44,12 @@ module.exports =  StyleSheet.create({
     height: 304,
     backgroundColor: '#CCC',
   },
+  card: {
+    flex: 1,
+    margin: 5,
+    backgroundColor: '#ddd',
+    height: 130,
+  },
   categoryItem:{
     flexDirection:'row', 
     backgroundColor: '#91C5A9', 
