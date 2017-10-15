@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Text, TextInput, View, Image, NavigatorIOS, Button , FlatList} from 'react-native';
 import CheckBox from 'react-native-checkbox';
+import DatePicker from 'react-native-datepicker';
+{/*import TimePicker from 'react-native-timepicker';*/}
 
 class NewPost extends React.Component {
   static propTypes = {
@@ -13,13 +15,14 @@ class NewPost extends React.Component {
 
   constructor(props, context) {
     super(props, context);
-    //this._onForward = this._onForward.bind(this);
+    this._done = this._done.bind(this);
 
     this.state = {
       title:"",
       description:"",
       free:false,
       trade:false,
+      tradeFor:"",
       date:"",
       time:"",
       address:""
@@ -35,6 +38,16 @@ class NewPost extends React.Component {
   //   });
   // }
 
+  _done()
+  {
+    
+    // this.props.navigator.push({
+    //   component: props.page,
+      
+    // })
+
+
+  }
 
 
   render() {
@@ -76,6 +89,64 @@ class NewPost extends React.Component {
               checkedImage = {checkImg}
               uncheckedImage = {uncheckImg}
           />
+
+          <Text>If trade, for what?</Text>
+          <TextInput
+            style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+            onChangeText={(tradeFor) => this.setState({tradeFor})}
+            value={this.state.tradeFor}
+          />
+
+          <Text>Date item is available</Text>
+          <DatePicker
+            style={{width: 200}}
+            date={this.state.date}
+            mode="date"
+            placeholder="select date"
+            format="MM-DD-YY"
+            minDate="10-01-18"
+            maxDate="01-01-20"
+            confirmBtnText="Confirm"
+            cancelBtnText="Cancel"
+            customStyles={{
+              dateIcon: {
+              position: 'absolute',
+              left: 0,
+              top: 4,
+              marginLeft: 0
+            },
+            dateInput: {
+              marginLeft: 36
+            }
+          // ... You can check the source to find the other keys. 
+          }}
+          onDateChange={(date) => {this.setState({date})}}
+          />
+
+          <Text>Time item is available</Text>
+          {/*<TimePicker
+            style={{backgroundColor:'grey'}}
+            selectedHour={1}
+            selectedMinute={30}
+            minuteInterval={5}
+            onValueChange={(time)=>this.setState({time})}
+            loop={true} 
+          />*/}
+
+          <Text>Address</Text>
+          <TextInput
+            style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+            onChangeText={(address) => this.setState({address})}
+            value={this.state.address}
+          />
+
+           <View style={{backgroundColor:'grey', width:300, justifyContent: 'center'}}>
+            <Button
+              title="DONE!"
+              onPress={()=> this._done()}
+              color='white'
+              />
+          </View>
 
       	</View>
   	)

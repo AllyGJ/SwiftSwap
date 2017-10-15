@@ -26,5 +26,6 @@
     "react-native": "github:expo/react-native#sdk-21.0.0",
     "react-native-checkbox": "^1.2.0",
     "react-native-datepicker": "^1.6.0",
+    "react-native-timepicker": "^1.0.3"
   }
 }
