@@ -57,54 +57,6 @@ const categories = [
 ]
 
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    //backgroundColor: '#F5FCFF',
-    flexDirection: 'column',
-    padding: 30,
-    marginTop: 65,
-  },
-  title: {
-    marginTop: 5,
-    fontSize:40,
-    fontWeight:'bold',
-    textAlign: 'center',
-    marginBottom: 5,
-  },
-  description: {
-    marginBottom: 10,
-    fontSize: 18,
-    textAlign: 'center',
-    color: 'black'
-  },
-  list: {
-    flex: 1,
-    justifyContent: 'center',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-  },
-  listitem: {
-    flex: 1,
-    //fontSize: 20,
-    margin: 5,
-    width: 223,
-    height: 304,
-    backgroundColor: '#CCC',
-  },
-  card: {
-    flex: 1,
-    margin: 5,
-    backgroundColor: '#ddd',
-    height: 130
-  }
-});
-
-
-
-
 class DashboardScreen extends React.Component {
   static propTypes = {
     route: PropTypes.shape({
@@ -145,20 +97,16 @@ class DashboardScreen extends React.Component {
 
   _renderItem = (item) => {
 
-    return //<View style={styles.listitem}>
-
     return
-    <View style={styles.card}
+    <View style={s.card}
       image={item.image}
       text={item.title}
     />
-      //<Text style={styles.description}>{item.title}</Text>
-
-    //</View>
+      
   }
 
   render() {
-    console.log("hello world from dashboard")
+    //console.log("hello world from dashboard")
 
     return (
       <View style={s.container}>
@@ -172,45 +120,16 @@ class DashboardScreen extends React.Component {
 
           contentContainerStyle={s.list}
 
-          //contentContainerStyle={styles.list}
-
           data={categories}
           //numColumns={itemsPerRow}
           keyExtractor={(item, index) => index}
           renderItem={li => {
             return <Category onDonePress={() => this._onForward(li.item.title)} key={li.index} title={li.item.title} image={li.item.image}/>
           }}
-          // renderItem={(item) => <View //style={styles.card}
-          //   image={item.image}
-          //   text={item.title}
-          // />}
+        
         />
       </View>
     );
-
-    // return (
-    //   <View style={{
-    //     flex: 1,
-    //     flexDirection: 'column',
-    //     justifyContent: 'center',
-    //     alignItems: 'center'
-    //   }}>
-    //
-    //     <View style={{height: 80}} />
-    //     <Text style={{fontSize:40, fontWeight:'bold'}}>SwiftSwap</Text>
-    //     <View style={{height: 20}} />
-    //     <Text style={{fontSize:18}}>Choose a category and start swapping!</Text>
-    //     <View style={{height: 10}} />
-    //     </View>
-    //     <FlatList
-    //       contentContainerStyle={styles.list}
-    //       data={categories}
-    //       numColumns={itemsPerRow}
-    //       renderItem={this.renderItem}
-    //     />
-    //
-    //
-    //   )
 
   }
 
