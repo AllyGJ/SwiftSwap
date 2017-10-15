@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
     marginTop: 65,
   },
   title: {
+    fontFamily: 'Ubuntu',
     marginTop: 5,
     fontSize:40,
     fontWeight:'bold',
@@ -75,6 +76,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   description: {
+    fontFamily: 'Ubuntu',
     marginBottom: 10,
     fontSize: 18,
     textAlign: 'center',
