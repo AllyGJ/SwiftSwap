@@ -4,7 +4,7 @@ import { Text, View, Image, NavigatorIOS, Button , FlatList} from 'react-native'
 import Category from './Category.js';
 import CategoryPage from './CategoryPage.js'
 
-
+var s = require('./Styles');
 const categories = [
   {
     key:0,
@@ -64,19 +64,20 @@ class HomeScreen extends React.Component {
 
 
   render() {
-    console.log("hello world")
+    //console.log("hello world")
     return (
-      <View style={{
-        flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}>
-
-        <View style={{height: 80}} />
-        <Text style={{fontSize:40, fontWeight:'bold'}}>SwiftSwap</Text>
+      <View style={
+        s.container
+      //   {
+      //   flex: 1,
+      //   flexDirection: 'column',
+      //   justifyContent: 'center',
+      //   alignItems: 'center'
+      // }
+    }>
+        <Text style={s.title}>SwiftSwap</Text>
         <View style={{height: 20}} />
-        <Text style={{fontSize:18}}>Choose a category and start swapping!</Text>
+        <Text style={s.description}>Choose a category and start swapping!</Text>
         <View style={{height: 10}} />
           <FlatList
             data={categories}

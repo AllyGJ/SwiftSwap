@@ -4,6 +4,9 @@ import { Text, TextInput, View, Image, NavigatorIOS, Button } from 'react-native
 //import HomeScreen from './HomeScreen.js';
 import DashboardScreen from './DashboardScreen.js';
 
+
+var s = require('./Styles');
+
 class Login extends React.Component {
 
   static propTypes = {
@@ -59,42 +62,47 @@ class Login extends React.Component {
   render() {
 
     return (
-     <View style={{
-        flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}>
+     <View style={
+        s.container
+      // {
+      //   flex: 1,
+      //   flexDirection: 'column',
+      //   justifyContent: 'center',
+      //   alignItems: 'center',
+      //   backgroundColor:'#F8E1B4'
+      // }
+    }>
 
       <View style={{height: 30}} />
-      <Text style={{textAlign:'center', fontSize:40,fontWeight:'bold'}}>SwiftSwap</Text>
+      <Text style={s.title}>SwiftSwap</Text>
         <View style={{height: 80}} />
 
-        <Text>Username</Text>
+        <Text style={[s.lightPurple]}>Username</Text>
         <TextInput
         value={this.state.username}
         onChangeText={(username) => this.setState({username})}
-        style={{width:300,height: 40, borderColor: 'gray', borderWidth: 1}}
+        style={{width:300,height: 40, borderColor: 'gray', borderWidth: 1, backgroundColor:'white'}}
         />
 
         <View style={{height: 60}} />
 
-        <Text>Password</Text>
+        <Text style={[s.lightPurple]}>Password</Text>
         <TextInput
         secureTextEntry={true}
         value={this.state.password}
         onChangeText={(password) => this.setState({password})}
-        style={{width: 300 ,height: 40, borderColor: 'gray', borderWidth: 1}}
+        style={{width: 300 ,height: 40, borderColor: 'gray', borderWidth: 1,backgroundColor:'white'}}
         />
 
-        <View style={{height: 100}} />
+        <View style={{height: 80}} />
         <Button
-          style={{borderWidth:1}}
+          style={{borderWidth:2}}
           onPress={this._onForward}
           title="Log in"
         />
 
-        <View style={{height: 50}} />
+        <View style={{height: 30}} />
+        
         <Button
           style={{borderWidth:1}}
           onPress={this._createNewAccount}

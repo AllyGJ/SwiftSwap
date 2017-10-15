@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Text, View, Image, NavigatorIOS, Button , FlatList} from 'react-native';
 import NewPost from './NewPost.js'
 
+var s = require('./Styles');
+
 class DashboardCategoryPage extends React.Component {
 static propTypes = {
     route: PropTypes.shape({

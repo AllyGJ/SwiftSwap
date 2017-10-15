@@ -5,6 +5,9 @@ import CheckBox from 'react-native-checkbox';
 import DatePicker from 'react-native-datepicker';
 {/*import TimePicker from 'react-native-timepicker';*/}
 
+
+var s = require('./Styles');
+
 class NewPost extends React.Component {
   static propTypes = {
     route: PropTypes.shape({
@@ -67,6 +70,7 @@ class NewPost extends React.Component {
       			onChangeText={(title) => this.setState({title})}
       			value={this.state.title}
       		/>
+          <View style={{height: 10}} />
       		<Text>Description</Text>
       		<TextInput
       			multiline={true}
@@ -75,6 +79,7 @@ class NewPost extends React.Component {
       			value={this.state.description}
       		/>
 
+          <View style={{height: 10}} />
           <CheckBox
               label='Free'
               labelBefore = {true}
@@ -82,6 +87,7 @@ class NewPost extends React.Component {
               checkedImage = {checkImg}
               uncheckedImage = {uncheckImg}
           />
+          <View style={{height: 10}} />
           <CheckBox
               label='Trade'
               labelBefore = {true}
@@ -90,6 +96,7 @@ class NewPost extends React.Component {
               uncheckedImage = {uncheckImg}
           />
 
+          <View style={{height: 10}} />
           <Text>If trade, for what?</Text>
           <TextInput
             style={{height: 40, borderColor: 'gray', borderWidth: 1}}
@@ -97,6 +104,7 @@ class NewPost extends React.Component {
             value={this.state.tradeFor}
           />
 
+          <View style={{height: 10}} />
           <Text>Date item is available</Text>
           <DatePicker
             style={{width: 200}}
@@ -123,6 +131,7 @@ class NewPost extends React.Component {
           onDateChange={(date) => {this.setState({date})}}
           />
 
+          <View style={{height: 10}} />
           <Text>Time item is available</Text>
           {/*<TimePicker
             style={{backgroundColor:'grey'}}
@@ -133,6 +142,7 @@ class NewPost extends React.Component {
             loop={true} 
           />*/}
 
+          <View style={{height: 10}} />
           <Text>Address</Text>
           <TextInput
             style={{height: 40, borderColor: 'gray', borderWidth: 1}}
@@ -140,7 +150,8 @@ class NewPost extends React.Component {
             value={this.state.address}
           />
 
-           <View style={{backgroundColor:'grey', width:300, justifyContent: 'center'}}>
+            <View style={{height: 40}} />
+           <View style={s.orange}>
             <Button
               title="DONE!"
               onPress={()=> this._done()}

@@ -4,12 +4,13 @@ import { Text, View, Image, NavigatorIOS, Button , TouchableOpacity} from 'react
 //import CategoryPage from './CategoryPage.js'
 import HomeScreen from './HomeScreen.js';
 
+var s = require('./Styles');
 function Category(props) {
-  console.log("props!!")
+  
 	return(	
 		<TouchableOpacity onPress={props.onDonePress}>
 
-    	<View style={{flexDirection:'row',backgroundColor:'grey', width: 300, height: 100}}>
+    	<View style={s.categoryItem}>
 
     		<Image source={props.image} style={{width:100, height:100}}/>
 
@@ -19,7 +20,7 @@ function Category(props) {
     		{/* moves text down */}
     		<View style={{flexDirection:'column',height:100}}>
     			<View style={{height:30}}></View>
-    			<Text style={{fontSize:30, fontWeight:'bold', color:'white'}}>{props.title}</Text>
+    			<Text style={s.categoryItemText}>{props.title}</Text>
     		</View>
     	
     		

@@ -32,6 +32,7 @@ import EventsScreen from './EventsScreen.js';
 'use strict';
 
 const itemsPerRow = 2;
+var s = require('./Styles');
 
 
 const categories = [
@@ -52,44 +53,44 @@ const categories = [
   }
 ]
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    //backgroundColor: '#F5FCFF',
-    flexDirection: 'column',
-    padding: 30,
-    marginTop: 65,
-  },
-  title: {
-    marginTop: 5,
-    fontSize:40,
-    fontWeight:'bold',
-    textAlign: 'center',
-    marginBottom: 5,
-  },
-  description: {
-    marginBottom: 10,
-    fontSize: 18,
-    textAlign: 'center',
-    color: 'black'
-  },
-  list: {
-    flex: 1,
-    justifyContent: 'center',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-  },
-  listitem: {
-    flex: 1,
-    //fontSize: 20,
-    margin: 5,
-    width: 223,
-    height: 304,
-    backgroundColor: '#CCC',
-  }
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     backgroundColor: '#F8E1B4',
+//     flexDirection: 'column',
+//     padding: 30,
+//     marginTop: 65,
+//   },
+//   title: {
+//     marginTop: 5,
+//     fontSize:40,
+//     fontWeight:'bold',
+//     textAlign: 'center',
+//     marginBottom: 5,
+//   },
+//   description: {
+//     marginBottom: 10,
+//     fontSize: 18,
+//     textAlign: 'center',
+//     color: 'black'
+//   },
+//   list: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     flexDirection: 'column',
+//     alignItems: 'flex-start',
+//   },
+//   listitem: {
+//     flex: 1,
+//     //fontSize: 20,
+//     margin: 5,
+//     width: 223,
+//     height: 304,
+//     backgroundColor: '#CCC',
+//   }
+// });
 
 
 
@@ -133,7 +134,7 @@ class DashboardScreen extends React.Component {
 
   _renderItem = (item) => {
     return //<View style={styles.listitem}>
-    <Text style={styles.description}>{item.title}</Text>
+    <Text style={s.description}>{item.title}</Text>
     //</View>
   }
 
@@ -141,15 +142,15 @@ class DashboardScreen extends React.Component {
     console.log("hello world from dashboard")
 
     return (
-      <View style={styles.container}>
-        <Text style={styles.title}>
+      <View style={s.container}>
+        <Text style={s.title}>
           SwiftSwap
         </Text>
-        <Text style={styles.description}>
+        <Text style={s.description}>
           Welcome to your dashboard!
         </Text>
         <FlatList
-          contentContainerStyle={styles.list}
+          contentContainerStyle={s.list}
           data={categories}
           numColumns={itemsPerRow}
           //keyExtractor={this._keyExtractor}

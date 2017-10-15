@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Text, View, Image, NavigatorIOS, Button , FlatList} from 'react-native';
 import NewPost from './NewPost.js'
 
+var s = require('./Styles');
+
 class CategoryPage extends React.Component {
 static propTypes = {
     route: PropTypes.shape({
@@ -39,7 +41,7 @@ _postNew()
       	}}>
 
       	{/* Post button */}
-      	  <View style={{backgroundColor:'grey', width:300}}>
+      	  <View style={s.postButton}>
     		<Button
     			title="POST NEW ITEM"
     			onPress={()=> this._postNew()}
