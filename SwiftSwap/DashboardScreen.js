@@ -33,7 +33,7 @@ import EventsScreen from './EventsScreen.js';
 
 const itemsPerRow = 2;
 
-
+var s = require('./Styles');
 const {height, width} = Dimensions.get('window');
 
 
