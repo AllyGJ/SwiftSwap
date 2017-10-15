@@ -17,17 +17,6 @@ static propTypes = {
     this._postNew = this._postNew.bind(this);
   }
 
-/*_postNew()
-{
-	console.log("new page from dashboard")
-	let nextIndex = ++this.props.index;
-    this.props.navigator.push({
-      component: NewPost,
-      title: 'Create New Post',
-      passProps: {index: nextIndex}
-    });
-
-}*/
 
 
  render() {
