@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Text, TextInput, View, Image, NavigatorIOS, Button , FlatList} from 'react-native';
+import { Text, TextInput, View, Image, NavigatorIOS, Button , FlatList, TouchableOpacity} from 'react-native';
 import CheckBox from 'react-native-checkbox';
 import DatePicker from 'react-native-datepicker';
 import DateTimePicker from 'react-native-modal-datetime-picker';
@@ -27,7 +27,7 @@ class NewPost extends React.Component {
       trade:false,
       tradeFor:"",
       date:"",
-      time:"",
+      time:"8:30",
       address:"",
       isDateTimePickerVisible: false
 
@@ -40,6 +40,7 @@ class NewPost extends React.Component {
  
   _handleTimePicked = (time) => {
     this.setState(time);
+    console.log(time);
     this._hideDateTimePicker();
   };
 
@@ -144,11 +145,19 @@ class NewPost extends React.Component {
 
           <View style={{height: 10}} />
           <Text>Time item is available</Text>
+          
+
+          <View style={{flexDirection:'row'}}>
+            <TouchableOpacity onPress={this._showDateTimePicker}>
+              <Image source={require('./images/clock.png')}/>
+            </TouchableOpacity>
+            <Text>{this.state.time}</Text>
+          </View>
           <DateTimePicker
-            mode='time'
+            mode='datetime'
             titleIOS='Pick a time'
             isVisible={this.state.isDateTimePickerVisible}
-            onConfirm={()=>this._handleDatePicked()}
+            onConfirm={(date)=>this._handleTimePicked(date)}
             onCancel={()=>this._hideDateTimePicker()}
           />
 
