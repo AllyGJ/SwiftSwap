@@ -5,6 +5,9 @@ import Category from './Category.js';
 import CategoryPage from './CategoryPage.js'
 
 var s = require('./Styles');
+
+const itemsPerRow = 3;
+
 const categories = [
   {
     key:0,
@@ -81,6 +84,7 @@ class HomeScreen extends React.Component {
         <View style={{height: 10}} />
           <FlatList
             data={categories}
+            numColumns={itemsPerRow}
             renderItem={li => {
               return <Category onDonePress={() => this._onForward(li.item.title)} key={li.index} title={li.item.title} image={li.item.image}/>
             }}

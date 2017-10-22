@@ -6,8 +6,8 @@ import HomeScreen from './HomeScreen.js';
 
 var s = require('./Styles');
 function Category(props) {
-  
-	return(	
+
+	return(
 		<TouchableOpacity onPress={props.onDonePress}>
 
     	<View style={s.categoryItem}>
@@ -18,12 +18,12 @@ function Category(props) {
     		<View style={{width:10}}></View>
 
     		{/* moves text down */}
-    		<View style={{flexDirection:'column',height:100}}>
-    			<View style={{height:30}}></View>
+    		<View style={{flexDirection:'column',height:50}}>
+    			<View style={{height:10}}></View>
     			<Text style={s.categoryItemText}>{props.title}</Text>
     		</View>
-    	
-    		
+
+
    		</View>
    		<View style={{height:30}}></View>
    	</TouchableOpacity>

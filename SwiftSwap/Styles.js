@@ -30,13 +30,13 @@ module.exports =  StyleSheet.create({
     textAlign: 'center',
     color: '#775BA3',
   },
-  list: {
+  list: { //Used by dashboard categories
     flex: 1,
     justifyContent: 'center',
     flexDirection: 'column',
-    alignItems: 'flex-start',
+    alignItems: 'center',
   },
-  listitem: {
+  listitem: { //Used by dashboard categories
     flex: 1,
     //fontSize: 20,
     margin: 5,
@@ -51,15 +51,18 @@ module.exports =  StyleSheet.create({
     height: 130,
   },
   categoryItem:{
-    flexDirection:'row', 
-    backgroundColor: '#91C5A9', 
-    width: 300, 
-    height: 100
+    flexDirection:'column',
+    justifyContent: 'center',
+    backgroundColor: '#91C5A9',
+    //width: 300,
+    width: 100,
+    height: 150
   },
   categoryItemText:{
-    fontSize:30, 
-    fontWeight:'bold',
+    fontSize:20,
+    //fontWeight:'bold',
     color: '#442D65',
+    textAlign: 'center',
   },
   postButton:{
     width:300,

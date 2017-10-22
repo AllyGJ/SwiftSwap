@@ -31,7 +31,7 @@ import EventsScreen from './EventsScreen.js';
 //import EasyListView from 'react-native-easy-listview-gridview'
 'use strict';
 
-const itemsPerRow = 2;
+const itemsPerRow = 3;
 
 var s = require('./Styles');
 const {height, width} = Dimensions.get('window');
@@ -121,7 +121,7 @@ class DashboardScreen extends React.Component {
           contentContainerStyle={s.list}
 
           data={categories}
-          //numColumns={itemsPerRow}
+          numColumns={itemsPerRow}
           keyExtractor={(item, index) => index}
           renderItem={li => {
             return <Category onDonePress={() => this._onForward(li.item.title)} key={li.index} title={li.item.title} image={li.item.image}/>
