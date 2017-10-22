@@ -27,7 +27,6 @@ class NewPost extends React.Component {
       trade:false,
       tradeFor:"",
       date:"",
-      time:"8:30",
       address:"",
       isDateTimePickerVisible: false
 
@@ -38,10 +37,11 @@ class NewPost extends React.Component {
  
   _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
  
-  _handleTimePicked = (time) => {
-    this.setState(time);
-    console.log(time);
+  _handleTimePicked = (date) => {
+    
+    console.log(date);
     this._hideDateTimePicker();
+    this.setState(date);
   };
 
   // _onForward(name) {
@@ -117,42 +117,45 @@ class NewPost extends React.Component {
           />
 
           <View style={{height: 10}} />
-          <Text>Date item is available</Text>
-          <DatePicker
-            style={{width: 200}}
-            date={this.state.date}
-            mode="date"
-            placeholder="select date"
-            format="MM-DD-YY"
-            minDate="10-01-18"
-            maxDate="01-01-20"
-            confirmBtnText="Confirm"
-            cancelBtnText="Cancel"
-            customStyles={{
-              dateIcon: {
-              position: 'absolute',
-              left: 0,
-              top: 4,
-              marginLeft: 0
-            },
-            dateInput: {
-              marginLeft: 36
-            }
-          // ... You can check the source to find the other keys. 
-          }}
-          onDateChange={(date) => {this.setState({date})}}
-          />
+          {// <Text>Date item is available</Text>
+          // <DatePicker
+          //   style={{width: 200}}
+          //   date={this.state.date}
+          //   mode="date"
+          //   placeholder="select date"
+          //   format="MM-DD-YY"
+          //   minDate="10-01-18"
+          //   maxDate="01-01-20"
+          //   confirmBtnText="Confirm"
+          //   cancelBtnText="Cancel"
+          //   customStyles={{
+          //     dateIcon: {
+          //     position: 'absolute',
+          //     left: 0,
+          //     top: 4,
+          //     marginLeft: 0
+          //   },
+          //   dateInput: {
+          //     marginLeft: 36
+          //   }
+          // // ... You can check the source to find the other keys. 
+          // }}
+          // onDateChange={(date) => {this.setState({date})}}
+          // />
 
-          <View style={{height: 10}} />
-          <Text>Time item is available</Text>
+          // <View style={{height: 10}} />
+        }
+          <Text> Date and time item is available</Text>
           
-
           <View style={{flexDirection:'row'}}>
             <TouchableOpacity onPress={this._showDateTimePicker}>
               <Image source={require('./images/clock.png')}/>
             </TouchableOpacity>
-            <Text>{this.state.time}</Text>
+            
           </View>
+
+          <Text>{this.state.date}</Text>
+          
           <DateTimePicker
             mode='datetime'
             titleIOS='Pick a time'
