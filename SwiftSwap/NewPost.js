@@ -34,11 +34,11 @@ class NewPost extends React.Component {
   }
 
   _showDateTimePicker = () => this.setState({ isDateTimePickerVisible: true });
- 
+
   _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
- 
+
   _handleTimePicked = (date) => {
-    
+
     console.log(date);
     this._hideDateTimePicker();
     this.setState(date);
@@ -55,10 +55,10 @@ class NewPost extends React.Component {
 
   _done()
   {
-    
+
     // this.props.navigator.push({
     //   component: props.page,
-      
+
     // })
 
 
@@ -70,10 +70,11 @@ class NewPost extends React.Component {
     const uncheckImg = require('./images/uncheckedBox.png')
 
   	return(
-  	
+
   		<View style={{
         	flex: 1,
-        	flexDirection: 'column'
+        	flexDirection: 'column',
+          margin: 10
       	}}>
       		<View style={{height: 80}} />
       		<Text>Title</Text>
@@ -138,7 +139,7 @@ class NewPost extends React.Component {
           //   dateInput: {
           //     marginLeft: 36
           //   }
-          // // ... You can check the source to find the other keys. 
+          // // ... You can check the source to find the other keys.
           // }}
           // onDateChange={(date) => {this.setState({date})}}
           // />
@@ -146,16 +147,16 @@ class NewPost extends React.Component {
           // <View style={{height: 10}} />
         }
           <Text> Date and time item is available</Text>
-          
+
           <View style={{flexDirection:'row'}}>
             <TouchableOpacity onPress={this._showDateTimePicker}>
               <Image source={require('./images/clock.png')}/>
             </TouchableOpacity>
-            
+
           </View>
 
           <Text>{this.state.date}</Text>
-          
+
           <DateTimePicker
             mode='datetime'
             titleIOS='Pick a time'
