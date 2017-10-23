@@ -1,19 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Text, View, Image, NavigatorIOS, Button , FlatList} from 'react-native';
+import { Text, View, Image, NavigatorIOS, Button , FlatList,
+TouchableOpacity} from 'react-native';
 import NewPost from './NewPost.js'
 
 var s = require('./Styles');
 
 class CategoryPage extends React.Component {
-static propTypes = {
+  static propTypes = {
     route: PropTypes.shape({
       title: PropTypes.string.isRequired
     }),
     navigator: PropTypes.object.isRequired,
   }
 
-  
+
   constructor(props, context) {
     super(props, context);
     this._postNew = this._postNew.bind(this);
@@ -39,17 +40,14 @@ _postNew()
         justifyContent: 'center',
         alignItems: 'center'
       	}}>
+      <TouchableOpacity onPress={()=> this._postNew()}>
+         <View style={s.postContainer}>
+            <Image source={require('./icons/chat.png')} style={{width:100, height:100}}/>
+            <Text style={s.categoryItemText}>POST NEW ITEM</Text>
+         </View>
+      </TouchableOpacity>
 
-      	{/* Post button */}
-      	  <View style={s.postButton}>
-    		<Button
-    			title="POST NEW ITEM"
-    			onPress={()=> this._postNew()}
-    			color='white'
-    			/>
-    	  </View>
 
-    		
        	</View>
       )
   }

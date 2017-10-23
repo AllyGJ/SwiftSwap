@@ -19,7 +19,7 @@
     "preset": "jest-expo"
   },
   "dependencies": {
-    "expo": "^21.0.0",
+    "expo": "^21.0.3",
     "firebase-admin": "^5.4.1",
     "native-base": "^2.3.3",
     "react": "16.0.0-alpha.12",
@@ -27,7 +27,7 @@
     "react-native-checkbox": "^1.2.0",
     "react-native-datepicker": "^1.6.0",
     "react-native-modal-datetime-picker": "^4.11.0",
-    "react-native-timepicker": "^1.0.3"
+    "react-native-timepicker": "^1.0.3",
   },
   "rnpm": {
     "assets": [

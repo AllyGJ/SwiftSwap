@@ -20,7 +20,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Text, View, Image, NavigatorIOS, Button, FlatList,
-         StyleSheet, Dimensions } from 'react-native';
+         StyleSheet, Dimensions, Navigator } from 'react-native';
+//import { TabNavigator, NavigationActions } from 'react-navigation';
 //import { ListItem } from 'native-base';
 import Category from './Category.js';
 //import CategoryPage from './CategoryPage.js'
@@ -36,23 +37,21 @@ const itemsPerRow = 3;
 var s = require('./Styles');
 const {height, width} = Dimensions.get('window');
 
-
-
 const categories = [
   {
     key:0,
     title: "Swap",
-    image: require("./images/handshake-small.jpeg")
+    image: require("./icons/teamwork.png")
   },
   {
     key:1,
     title: "Events",
-    image: require("./images/event-small.jpeg")
+    image: require("./icons/calendar.png")
   },
   {
     key:2,
     title: "Settings",
-    image: require("./images/settings-small.jpeg")
+    image: require("./icons/settings.png")
   }
 ]
 
@@ -73,53 +72,59 @@ class DashboardScreen extends React.Component {
 
   _onForward(name) {
     let nextIndex = ++this.props.index;
-    this.props.navigator.push({
-      //component: DashboardCategoryPage,
-      //title: name,
-      component: HomeScreen,
-      title: 'Home',
-      // component: SettingsScreen,
-      // title: 'Settings',
-      passProps: {index: nextIndex}
-    });
+    // if (id == 0) {
+    //   console.log("Clicked swap")
+      this.props.navigator.push({
+        component: HomeScreen,
+        title: 'Home',
+        passProps: {index: nextIndex}
+      });
+    // } else if (id == 1) {
+    //   console.log("Clicked events")
+    //   this.props.navigator.push({
+    //     component: EventsScreen,
+    //     title: 'Events',
+    //     passProps: {index: nextIndex}
+    //   });
+    // } else if (id == 2) {
+    //   console.log("Clicked settings")
+    //   this.props.navigator.push({
+    //     component: SettingsScreen,
+    //     title: 'Settings',
+    //     passProps: {index: nextIndex}
+    //   });
+    // }
   }
 
   state = {selected: (new Map(): Map<string, boolean>)};
 
   _keyExtractor = (item, index) => item.id;
 
-  _onPressItem = (id: string) => {  // updater functions are preferred for transactional updates
-    this.setState((state) => {  // copy the map rather than modifying state.
-      const selected = new Map(state.selected); selected.set(id, !selected.get(id)); // toggle
-      return {selected};
-    });
-  };
+  // _onPressItem = (id: string) => {  // updater functions are preferred for transactional updates
+  //   this.setState((state) => {  // copy the map rather than modifying state.
+  //     const selected = new Map(state.selected); selected.set(id, !selected.get(id)); // toggle
+  //     return {selected};
+  //   });
+  // };
 
-  _renderItem = (item) => {
-
-    return
-    <View style={s.card}
-      image={item.image}
-      text={item.title}
-    />
-
-  }
+  // _renderItem = (item) => {
+  //
+  //   return
+  //   <View style={s.card}
+  //     image={item.image}
+  //     text={item.title}
+  //   />
+  //
+  // }
 
   render() {
-    //console.log("hello world from dashboard")
-
     return (
       <View style={s.container}>
-        <Text style={s.title}>
-          SwiftSwap
-        </Text>
-        <Text style={s.description}>
-          Welcome to your dashboard!
-        </Text>
+        <Text style={s.title}>SwiftSwap</Text>
+        <Text style={s.description}>Welcome to your dashboard!</Text>
         <FlatList
-
+          scrollEnabled={false}
           contentContainerStyle={s.list}
-
           data={categories}
           numColumns={itemsPerRow}
           keyExtractor={(item, index) => index}
@@ -134,7 +139,8 @@ class DashboardScreen extends React.Component {
   }
 
 
-
 }
+
+
 
 module.exports = DashboardScreen;

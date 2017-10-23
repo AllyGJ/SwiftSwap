@@ -19,13 +19,14 @@ module.exports =  StyleSheet.create({
   title: {
     marginTop: 5,
     fontSize:40,
-    fontWeight:'bold',
+    fontFamily: 'Ubuntu-B',
     textAlign: 'center',
     marginBottom: 5,
     color: '#442D65',
   },
   description: {
     marginBottom: 10,
+    fontFamily: 'Ubuntu-R',
     fontSize: 18,
     textAlign: 'center',
     color: '#775BA3',
@@ -53,16 +54,23 @@ module.exports =  StyleSheet.create({
   categoryItem:{
     flexDirection:'column',
     justifyContent: 'center',
-    backgroundColor: '#91C5A9',
+    //backgroundColor: '#91C5A9',
     //width: 300,
     width: 100,
-    height: 150
+    height: 120,
+    margin: 3,
   },
   categoryItemText:{
     fontSize:20,
+    fontFamily: 'Bariol_Regular',
     //fontWeight:'bold',
     color: '#442D65',
     textAlign: 'center',
+  },
+  postContainer:{
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   postButton:{
     width:300,

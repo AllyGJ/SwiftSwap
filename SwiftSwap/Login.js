@@ -77,7 +77,7 @@ class Login extends React.Component {
       <Text style={s.title}>SwiftSwap</Text>
         <View style={{height: 80}} />
 
-        <Text style={[s.lightPurple]}>Username</Text>
+        <Text>Username</Text>
         <TextInput
         value={this.state.username}
         onChangeText={(username) => this.setState({username})}
@@ -86,7 +86,7 @@ class Login extends React.Component {
 
         <View style={{height: 60}} />
 
-        <Text style={[s.lightPurple]}>Password</Text>
+        <Text>Password</Text>
         <TextInput
         secureTextEntry={true}
         value={this.state.password}
@@ -102,7 +102,7 @@ class Login extends React.Component {
         />
 
         <View style={{height: 30}} />
-        
+
         <Button
           style={{borderWidth:1}}
           onPress={this._createNewAccount}
