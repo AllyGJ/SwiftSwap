@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Text, TextInput, View, Image, NavigatorIOS, Button , FlatList, TouchableOpacity} from 'react-native';
+import { Text, TextInput, View, Image, NavigatorIOS, Button ,
+  Alert, FlatList, TouchableOpacity} from 'react-native';
 import CheckBox from 'react-native-checkbox';
 import DatePicker from 'react-native-datepicker';
 import DateTimePicker from 'react-native-modal-datetime-picker';
@@ -177,7 +178,14 @@ class NewPost extends React.Component {
            <View style={s.orange}>
             <Button
               title="DONE!"
-              onPress={()=> this._done()}
+              //onPress={()=> this._done()}
+              onPress={() => Alert.alert('Success!',
+                             'Your item has been submitted for review',
+                             [{text: 'OK',
+                                onPress: () => {this.props.navigator.pop();}},
+                             ]
+                           )
+                      }
               color='white'
               />
           </View>
